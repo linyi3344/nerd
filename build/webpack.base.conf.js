@@ -3,7 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 const { VueLoaderPlugin } = require('vue-loader')
-
+let WebpackDeepScopeAnalysisPlugin = require("webpack-deep-scope-plugin").default;
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -81,6 +81,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new WebpackDeepScopeAnalysisPlugin()
   ]
 }
